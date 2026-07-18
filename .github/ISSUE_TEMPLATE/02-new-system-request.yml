@@ -1,4 +1,4 @@
-name: 🚲 Bike Share System Request
+name: 🚲 New System Request
 description: Request support for your favorite bike share system.
 body:
   - type: input
