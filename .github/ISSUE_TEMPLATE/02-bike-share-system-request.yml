@@ -1,0 +1,52 @@
+name: 🚲 Bike Share System Request
+description: Request support for your favorite bike share system.
+type: "feature"
+body:
+  - type: input
+    id: name
+    attributes:
+      label: System Name
+      description: Enter the name of the bike share system that you want Spoke to support.
+    validations:
+      required: true
+  - type: input
+    id: location
+    attributes:
+      label: Location
+      description: Enter the location for this bike share system.
+      placeholder: "ex: Denver, CO"
+    validations:
+      required: true
+  - type: input
+    id: website
+    attributes:
+      label: Website
+      description: Enter the website for this bike share system.
+  - type: dropdown
+    id: features
+    attributes:
+      label: What features are currently supported by this bike share system?
+      description: Please select all of the features the bike share system supports via app or website.
+      multiple: true
+      options:
+        - Bike station status
+        - Electric bike status
+        - User login via app
+        - Bike checkout
+        - User trip history
+        - Other
+  - type: textarea
+    id: features-other
+    attributes:
+      label: Other features
+      description: Are there any features that this system would support but aren't currently available in Spoke? Add them here.
+  - type: textarea
+    id: kompakt-support
+    attributes:
+      label: Mudita Kompakt Support
+      description: Have you tried this bike share system's app on the Mudita Kompakt? Does it work? This is important for prioritizing what systems we add to Spoke. For example, the Indego app relies on Google Play Services for its map, so it isn't supported on the Kompakt.
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Add any additional information or comments about the feature here.

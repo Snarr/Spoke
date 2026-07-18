@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+   Backup rules. The encrypted credential store is excluded because its master key
+   lives in the Android Keystore and is not backed up, so a restored copy could not
+   be decrypted. See https://developer.android.com/guide/topics/data/autobackup
+   Note: This file is ignored for devices older than API 31.
+-->
+<full-backup-content>
+    <exclude domain="sharedpref" path="indego_secure_prefs.xml"/>
+</full-backup-content>

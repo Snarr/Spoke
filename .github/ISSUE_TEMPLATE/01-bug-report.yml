@@ -1,0 +1,46 @@
+name: 🐞 Bug Report
+description: Report any bug or unexpected functionality in Spoke.
+type: "bug"
+body:
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: A clear and concise description of what the bug is. Include steps to reproduce if you know how to reproduce this bug.
+    validations:
+      required: true
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected Behavior
+      description: A clear and concise description of what you expected to happen.
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: "Device"
+      placeholder: "Mudita Kompakt"
+      description: "The name of the device where you experienced this bug. While this app is designed for the Mudita Kompakt, we hope to provide some support to additional Android devices wherever possible."
+    validations:
+      required: true
+  - type: input
+    id: os-version
+    attributes:
+      label: "Android Version"
+      description: "The Android version you experienced this bug on."
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: "Spoke Version"
+      placeholder: "ex: v1.0"
+      description: "Your Spoke app version. You can find this on the \"Settings > About\" page."
+    validations:
+      required: true
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Add any additional information or comments about the bug here.

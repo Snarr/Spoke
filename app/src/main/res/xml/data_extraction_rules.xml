@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+   Data extraction rules. The encrypted credential store is excluded from both cloud
+   backup and device transfer because its Keystore-backed master key is device-bound.
+   See https://developer.android.com/about/versions/12/backup-restore#xml-changes
+-->
+<data-extraction-rules>
+    <cloud-backup>
+        <exclude domain="sharedpref" path="indego_secure_prefs.xml"/>
+    </cloud-backup>
+    <device-transfer>
+        <exclude domain="sharedpref" path="indego_secure_prefs.xml"/>
+    </device-transfer>
+</data-extraction-rules>

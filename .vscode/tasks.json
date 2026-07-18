@@ -1,0 +1,50 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Gradle: spotlessCheck",
+      "type": "shell",
+      "command": "./gradlew spotlessCheck",
+      "group": "build"
+    },
+    {
+      "label": "Gradle: spotlessApply",
+      "type": "shell",
+      "command": "./gradlew spotlessApply",
+      "group": "build"
+    },
+    {
+      "label": "Gradle: detekt",
+      "type": "shell",
+      "command": "./gradlew detekt",
+      "group": "build"
+    },
+    {
+      "label": "Gradle: test",
+      "type": "shell",
+      "command": "./gradlew test",
+      "group": "test"
+    },
+    {
+      "label": "Gradle: build",
+      "type": "shell",
+      "command": "./gradlew build",
+      "group": "build"
+    },
+    {
+      "label": "Gradle: run app (installDebug to emulator/device)",
+      "type": "shell",
+      "command": "./gradlew :app:installDebug",
+      "group": "build"
+    },
+    {
+      "label": "Gradle: verify (spotless + detekt + test)",
+      "type": "shell",
+      "command": "./gradlew spotlessCheck detekt test",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}
