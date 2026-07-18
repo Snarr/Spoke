@@ -37,7 +37,7 @@ As of v1.0, Spoke supports the following BCycle bike share systems:
 
 For a full feature matrix of supported features across these systems, see [CHANGELOG.MD](./CHANGELOG.md#feature-support-by-system).
 
-You can also request support for another bike share system [here]().
+You can also request support for another bike share system [here](https://github.com/Snarr/Spoke/issues/new?template=02-new-system-request.yml).
 
 ## Requirements
 
