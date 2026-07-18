@@ -88,6 +88,22 @@ android {
     }
 }
 
+val requiredAppSecrets = listOf("INDEGO_SECRET", "METRO_BIKE_SHARE_SECRET")
+
+val validateReleaseSecrets = tasks.register("validateReleaseSecrets") {
+    doFirst {
+        val missing = requiredAppSecrets.filter { secretProp(it).isBlank() }
+        require(missing.isEmpty()) {
+            "Missing required app secret(s): ${missing.joinToString(", ")}. " +
+                "Set them in ~/.gradle/gradle.properties (local builds) or as GitHub " +
+                "Actions secrets (CI release builds)."
+        }
+    }
+}
+
+tasks.matching { it.name == "assembleRelease" || it.name == "bundleRelease" }
+    .configureEach { dependsOn(validateReleaseSecrets) }
+
 dependencies {
     implementation(libs.muditaMmd)
 

@@ -33,6 +33,28 @@ jobs:
           fi
           echo "$ANDROID_KEYSTORE_BASE64" | base64 --decode > "$RUNNER_TEMP/spoke-release.jks"
 
+      - name: Validate required secrets
+        env:
+          INDEGO_SECRET: ${{ secrets.INDEGO_SECRET }}
+          METRO_BIKE_SHARE_SECRET: ${{ secrets.METRO_BIKE_SHARE_SECRET }}
+          ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        run: |
+          missing=()
+          for name in ANDROID_KEYSTORE_BASE64 INDEGO_SECRET METRO_BIKE_SHARE_SECRET \
+            ANDROID_KEYSTORE_PASSWORD ANDROID_KEY_ALIAS ANDROID_KEY_PASSWORD; do
+            if [ -z "${!name}" ]; then
+              missing+=("$name")
+            fi
+          done
+          if [ ${#missing[@]} -ne 0 ]; then
+            echo "Missing required secret(s): ${missing[*]}"
+            exit 1
+          fi
+          echo "All required secrets are present."
+
       - name: Build signed release APK + AAB
         env:
           ANDROID_KEYSTORE_PATH: ${{ runner.temp }}/spoke-release.jks
