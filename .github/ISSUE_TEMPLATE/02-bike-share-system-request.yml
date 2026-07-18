@@ -1,6 +1,5 @@
 name: 🚲 Bike Share System Request
 description: Request support for your favorite bike share system.
-type: "feature"
 body:
   - type: input
     id: name

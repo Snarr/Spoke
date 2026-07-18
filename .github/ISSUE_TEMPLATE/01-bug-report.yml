@@ -1,6 +1,5 @@
 name: 🐞 Bug Report
 description: Report any bug or unexpected functionality in Spoke.
-type: "bug"
 body:
   - type: textarea
     id: context
